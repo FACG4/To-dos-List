@@ -5,3 +5,25 @@ test('Example test', function(t) {
   t.pass();
   t.end();
 });
+
+/* add tests*/
+
+
+
+
+/* delete tests*/
+
+
+
+
+/* Edit tests */
+
+
+
+/* markTodo tests */
+
+
+
+/* sortTodos tests */
+
+
