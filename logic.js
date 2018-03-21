@@ -62,6 +62,17 @@ var todoFunctions = {
     // sortFunction will have same signature as the sort function in array.sort
     // hint: array.slice, array.sort
   },
+  
+  editTodo: function(todos, idToEdit, newDescription) {
+    // we are going to add something veruy cool an nice and great
+    var copy_arr = this.cloneArrayOfObjects(todos);
+    for (let item of copy_arr) {
+      if (item.id === idToEdit) {
+        item.description = newDescription;
+      }
+    }
+    return copy_arr;
+  }
 };
 
 

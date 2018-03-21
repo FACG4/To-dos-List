@@ -58,6 +58,35 @@
 
     // add classes for css
 
+    // Edit buttoon 
+      
+      const editButton = document.createElement('button');
+      const editIcon = document.createElement('i');
+      const editInput = document.createElement('input');
+      const savedSpan = document.createElement('span');
+      editButton.id = 'edit';
+      editButton.appendChild(editIcon);
+      todoNode.appendChild(editButton);
+      
+
+      editButton.addEventListener('click', function(e) {
+        if (e.target.id === 'edit') {
+          editButton.type = 'text';
+          editInput.value = span.textContent;
+          todoNode.insertBefore(editInput, span);
+          todoNode.removeChild(span);
+          console.log(editButton.id);
+          editButton.id = 'save';
+          console.log(editButton.id);
+
+        } else if (e.target.id === 'save'){
+          savedSpan.textContent = editInput.value;
+          todoNode.insertBefore(savedSpan, editInput);
+          todoNode.removeChild(editInput);
+          editButton.id = 'edit';
+        }
+      });
+
     return todoNode;
   };
 
