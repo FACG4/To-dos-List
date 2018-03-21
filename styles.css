@@ -2,12 +2,6 @@
   font-family: sans-serif;
 }
 
-.container {
-  /* background-size: cover;
-  height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(imgs/todoimg3.jpeg); */
-}
-
 .h1Style {
   text-align: center;
 }
@@ -52,7 +46,6 @@
 }
 
 .formStyle label {
-  /* width: 40%; */
   margin-bottom: 10px;
   display: inline-block;
   font-weight: bold;
@@ -137,7 +130,7 @@
   border-radius: 5px;
 }
 
-.fa-pencil{
+.fa-pencil {
   pointer-events: none;
 }
 

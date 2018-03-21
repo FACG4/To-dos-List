@@ -1,4 +1,3 @@
-
 var todoFunctions = {
   generateId: (function() {
     var idCounter = 0;
@@ -37,26 +36,25 @@ var todoFunctions = {
   },
   markTodo: function(todos, idToMark) {
 
-    return todos.map(function(todo){
-              var newTodo = {};
+    return todos.map(function(todo) {
+      var newTodo = {};
 
-              Object.keys(todo).forEach(function(key) {
-                  newTodo[key] = todo[key]
-              });
+      Object.keys(todo).forEach(function(key) {
+        newTodo[key] = todo[key]
+      });
 
-              if (newTodo.id === idToMark) {
-                  newTodo.done = !newTodo.done;
-              }
-              return newTodo;
-          });
+      if (newTodo.id === idToMark) {
+        newTodo.done = !newTodo.done;
+      }
+      return newTodo;
+    });
 
   },
   sortTodos: function(todos, sortFunction) {
 
   },
-  
+
   editTodo: function(todos, idToEdit, newDescription) {
-    // we are going to add something veruy cool an nice and great
     var copy_arr = this.cloneArrayOfObjects(todos);
     for (let item of copy_arr) {
       if (item.id === idToEdit) {
