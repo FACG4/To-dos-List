@@ -77,9 +77,15 @@
       event.preventDefault();
 
       var description = event.target.description.value;
-      event.target.description.value = "";
+      if(description.trim().length>0){
       var newState = todoFunctions.addTodo(state, description);
       update(newState);
+      event.target.description.value = "";
+        
+      }
+      else{
+        alert('Enter todo');
+      }
     });
   }
 
