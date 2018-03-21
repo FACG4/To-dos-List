@@ -46,6 +46,11 @@
     // deleteButtonNode.className = "btn delete";
     // deleteButtonNode.textContent="Delete";
     //deleteButtonNode.appendChild(icon);
+
+
+
+
+    
     todoNode.appendChild(span);
     todoNode.appendChild(icon);
 
