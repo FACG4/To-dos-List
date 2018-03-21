@@ -18,21 +18,68 @@
       // you will need to use addEventListener
   
       // add span holding description
+      const span = document.createElement('span');
+      console.log(span);
+      span.textContent = todo.description;
+      span.id = todo.id;
+      todoNode.appendChild(span);
   
       // this adds the delete button
       var deleteButtonNode = document.createElement('button');
+      var icon = document.createElement('i');
       deleteButtonNode.addEventListener('click', function(event) {
         var newState = todoFunctions.deleteTodo(state, todo.id);
         update(newState);
       });
+      icon.className = "fa fa-trash iconStyle";
+      deleteButtonNode.className = "btn delete";
+
+
+      deleteButtonNode.appendChild(icon);
       todoNode.appendChild(deleteButtonNode);
+
   
       // add markTodo button
   
       // add classes for css
-  
+
+      // add Edit buttons
+      
+      const editButton = document.createElement('button');
+      const editIcon = document.createElement('i');
+      const editInput = document.createElement('input');
+      const savedSpan = document.createElement('span');
+      editButton.id = 'edit';
+      editButton.appendChild(editIcon);
+      todoNode.appendChild(editButton);
+      
+
+      editButton.addEventListener('click', function(e) {
+        if (e.target.id === 'edit') {
+          editButton.type = 'text';
+          editInput.value = span.textContent;
+          todoNode.insertBefore(editInput, span);
+          todoNode.removeChild(span);
+          console.log(editButton.id);
+          editButton.id = 'save';
+          console.log(editButton.id);
+
+        } else if (e.target.id === 'save'){
+          savedSpan.textContent = editInput.value;
+          todoNode.insertBefore(savedSpan, editInput);
+          todoNode.removeChild(editInput);
+          editButton.id = 'edit';
+        }
+      });
+
       return todoNode;
     };
+
+    
+
+   
+
+
   
     // bind create todo form
     if (addTodoForm) {
@@ -40,11 +87,18 @@
         // https://developer.mozilla.org/en-US/docs/Web/Events/submit
         // what does event.preventDefault do?
         // what is inside event.target?
-  
-        var description = '?'; // event.target ....
-  
+        event.preventDefault();
+        //var description = addTodoForm.firstElementChild.value;
+
+        var description = event.target.description.value; // event.target ....
+        event.target.description.value="";
+        // var x = event.target;
+        // console.dir(x);
+
         // hint: todoFunctions.addTodo
-        var newState = []; // ?? change this!
+        //var newTodo = {};
+        var newTodo = {"description" :description};
+        var newState = todoFunctions.addTodo(state,newTodo );
         update(newState);
       });
     }
