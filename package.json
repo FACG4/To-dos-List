@@ -1,10 +1,17 @@
 {
-  "name": "To-dos-List",
+  "name": "to-dos-list",
   "version": "1.0.0",
   "description": "",
   "main": "dom.js",
+  "dependencies": {
+    "bootstrap-select": "^1.12.4"
+  },
+  "devDependencies": {
+    "tap-spec": "^4.1.1",
+    "tape": "^4.9.0"
+  },
   "scripts": {
-    "test": "tape test.js | tap-spec"
+    "test": "tape ./test.js | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -16,9 +23,5 @@
   "bugs": {
     "url": "https://github.com/FACG4/To-dos-List/issues"
   },
-  "homepage": "https://github.com/FACG4/To-dos-List#readme",
-  "devDependencies": {
-    "tap-spec": "^4.1.1",
-    "tape": "^4.9.0"
-  }
+  "homepage": "https://github.com/FACG4/To-dos-List#readme"
 }

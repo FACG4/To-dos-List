@@ -11,7 +11,7 @@
 
   var state = [{
       id: -3,
-      description: 'first todo'
+      description: 'firstffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff todo'
     },
     {
       id: -2,
@@ -35,12 +35,19 @@
 
     // this adds the delete button
     var deleteButtonNode = document.createElement('button');
-    deleteButtonNode.addEventListener('click', function(event) {
+
+
+    var icon = document.createElement('i');
+    icon.addEventListener('click', function(event) {
       var newState = todoFunctions.deleteTodo(state, todo.id);
       update(newState);
     });
+    icon.className = "fa fa-trash iconStyle";
+    // deleteButtonNode.className = "btn delete";
+    // deleteButtonNode.textContent="Delete";
+    //deleteButtonNode.appendChild(icon);
     todoNode.appendChild(span);
-    todoNode.appendChild(deleteButtonNode);
+    todoNode.appendChild(icon);
 
     // add markTodo button
 
