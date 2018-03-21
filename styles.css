@@ -119,3 +119,11 @@ height: 40px;
   padding-right: 10px;
   line-height: 40px;
 }
+
+.fa {
+  pointer-events: none;
+}
+
+.hidden {
+  display: none;
+}

@@ -26,6 +26,8 @@
   // This function takes a todo, it returns the DOM node representing that todo
   var createTodoNode = function(todo) {
     var todoNode = document.createElement('li');
+    todoNode.id = todo.id;
+    
     // you will need to use addEventListener
 
 
@@ -35,22 +37,13 @@
 
     // this adds the delete button
     var deleteButtonNode = document.createElement('button');
-
-
     var icon = document.createElement('i');
     icon.addEventListener('click', function(event) {
       var newState = todoFunctions.deleteTodo(state, todo.id);
       update(newState);
     });
     icon.className = "fa fa-trash iconStyle";
-    // deleteButtonNode.className = "btn delete";
-    // deleteButtonNode.textContent="Delete";
-    //deleteButtonNode.appendChild(icon);
-
-
-
-
-
+    
     todoNode.appendChild(span);
     todoNode.appendChild(icon);
 
@@ -63,9 +56,8 @@
       const editButton = document.createElement('button');
       const editIcon = document.createElement('i');
       const editInput = document.createElement('input');
-      const savedSpan = document.createElement('span');
-      editButton.id = 'edit';
       editIcon.className="fa fa-pencil iconStyle";
+      editButton.id = 'edit';
       editButton.appendChild(editIcon);
       todoNode.appendChild(editButton);
 
@@ -73,19 +65,17 @@
 
       editButton.addEventListener('click', function(e) {
         if (e.target.id === 'edit') {
-          editButton.type = 'text';
           editInput.value = span.textContent;
           todoNode.insertBefore(editInput, span);
-          todoNode.removeChild(span);
-          console.log(editButton.id);
+          span.classList.add('hidden');
           editButton.id = 'save';
-          console.log(editButton.id);
+          editIcon.className= 'fa fa-check iconStyle';
 
         } else if (e.target.id === 'save'){
-          savedSpan.textContent = editInput.value;
-          todoNode.insertBefore(savedSpan, editInput);
-          todoNode.removeChild(editInput);
-          editButton.id = 'edit';
+         const newState =  todoFunctions.editTodo(state, e.target.parentNode.getAttribute('id'), editInput.value);
+         todoNode.removeChild(editInput);
+         update(newState);
+          // editButton.id = 'edit';
         }
       });
 
@@ -100,18 +90,10 @@
       // what does event.preventDefault do?
       // what is inside event.target?
       event.preventDefault();
-
-      var description = event.target.description.value; // event.target ....
+      var description = event.target.description.value;
       event.target.description.value="";
 
-       //var description = addTodoInput.value; // event.target ....
-
-
-      // console.log(description);
       // hint: todoFunctions.addTodo
-
-      // var newTodo = {"description" : description};
-      // var newState = todoFunctions.addTodo(state,newTodo );
 
       var newState = todoFunctions.addTodo(state, description); // ?? change this!
       update(newState);
