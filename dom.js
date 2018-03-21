@@ -2,48 +2,63 @@
 // The function here is called an iife,
 // it keeps everything inside hidden from the rest of our application
 (function() {
-    // This is the dom node where we will keep our todo
-    var container = document.getElementById('todo-container');
-    var addTodoForm = document.getElementById('add-todo');
-  
-    var state = [
-      { id: -3, description: 'first todo' },
-      { id: -2, description: 'second todo' },
-      { id: -1, description: 'third todo' },
-    ]; // this is our initial todoList
-  
-    // This function takes a todo, it returns the DOM node representing that todo
-    var createTodoNode = function(todo) {
-      var todoNode = document.createElement('li');
-      // you will need to use addEventListener
-  
-      // add span holding description
-      const span = document.createElement('span');
-      console.log(span);
-      span.textContent = todo.description;
-      span.id = todo.id;
-      todoNode.appendChild(span);
-  
-      // this adds the delete button
-      var deleteButtonNode = document.createElement('button');
-      var icon = document.createElement('i');
-      deleteButtonNode.addEventListener('click', function(event) {
-        var newState = todoFunctions.deleteTodo(state, todo.id);
-        update(newState);
-      });
-      icon.className = "fa fa-trash iconStyle";
-      deleteButtonNode.className = "btn delete";
+  // This is the dom node where we will keep our todo
+  var container = document.getElementById('todo-container');
+  var addTodoForm = document.getElementById('add-todo');
+  var addTodoInput = document.getElementsByName('description')[0];
 
 
-      deleteButtonNode.appendChild(icon);
-      todoNode.appendChild(deleteButtonNode);
 
-  
-      // add markTodo button
-  
-      // add classes for css
+  var state = [{
+      id: -3,
+      description: 'firstffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff todo'
+    },
+    {
+      id: -2,
+      description: 'second todo'
+    },
+    {
+      id: -1,
+      description: 'third todo'
+    },
+  ]; // this is our initial todoList
 
-      // add Edit buttons
+  // This function takes a todo, it returns the DOM node representing that todo
+  var createTodoNode = function(todo) {
+    var todoNode = document.createElement('li');
+    // you will need to use addEventListener
+
+
+    // add span holding description
+    var span = document.createElement('span');
+    span.textContent = todo.description;
+
+    // this adds the delete button
+    var deleteButtonNode = document.createElement('button');
+
+
+    var icon = document.createElement('i');
+    icon.addEventListener('click', function(event) {
+      var newState = todoFunctions.deleteTodo(state, todo.id);
+      update(newState);
+    });
+    icon.className = "fa fa-trash iconStyle";
+    // deleteButtonNode.className = "btn delete";
+    // deleteButtonNode.textContent="Delete";
+    //deleteButtonNode.appendChild(icon);
+
+
+
+
+    
+    todoNode.appendChild(span);
+    todoNode.appendChild(icon);
+
+    // add markTodo button
+
+    // add classes for css
+
+    // Edit buttoon 
       
       const editButton = document.createElement('button');
       const editIcon = document.createElement('i');
@@ -72,54 +87,52 @@
         }
       });
 
-      return todoNode;
-    };
+    return todoNode;
+  };
 
-    
+  // bind create todo form
+  if (addTodoForm) {
+    addTodoForm.addEventListener('submit', function(event) {
 
-   
+      // https://developer.mozilla.org/en-US/docs/Web/Events/submit
+      // what does event.preventDefault do?
+      // what is inside event.target?
+      event.preventDefault();
+
+      var description = event.target.description.value; // event.target ....
+      event.target.description.value="";
+
+       //var description = addTodoInput.value; // event.target ....
 
 
-  
-    // bind create todo form
-    if (addTodoForm) {
-      addTodoForm.addEventListener('submit', function(event) {
-        // https://developer.mozilla.org/en-US/docs/Web/Events/submit
-        // what does event.preventDefault do?
-        // what is inside event.target?
-        event.preventDefault();
-        //var description = addTodoForm.firstElementChild.value;
+      // console.log(description);
+      // hint: todoFunctions.addTodo
 
-        var description = event.target.description.value; // event.target ....
-        event.target.description.value="";
-        // var x = event.target;
-        // console.dir(x);
+      // var newTodo = {"description" : description};
+      // var newState = todoFunctions.addTodo(state,newTodo );
 
-        // hint: todoFunctions.addTodo
-        //var newTodo = {};
-        var newTodo = {"description" :description};
-        var newState = todoFunctions.addTodo(state,newTodo );
-        update(newState);
-      });
-    }
-  
-    // you should not need to change this function
-    var update = function(newState) {
-      state = newState;
-      renderState(state);
-    };
-  
-    // you do not need to change this function
-    var renderState = function(state) {
-      var todoListNode = document.createElement('ul');
-  
-      state.forEach(function(todo) {
-        todoListNode.appendChild(createTodoNode(todo));
-      });
-  
-      // you may want to add a class for css
-      container.replaceChild(todoListNode, container.firstChild);
-    };
-  
-    if (container) renderState(state);
-  })();
+      var newState = todoFunctions.addTodo(state, description); // ?? change this!
+      update(newState);
+    });
+  }
+
+  // you should not need to change this function
+  var update = function(newState) {
+    state = newState;
+    renderState(state);
+  };
+
+  // you do not need to change this function
+  var renderState = function(state) {
+    var todoListNode = document.createElement('ul');
+
+    state.forEach(function(todo) {
+      todoListNode.appendChild(createTodoNode(todo));
+    });
+
+    // you may want to add a class for css
+    container.replaceChild(todoListNode, container.firstChild);
+  };
+
+  if (container) renderState(state);
+})();
