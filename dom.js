@@ -6,8 +6,7 @@
 
   var state = [{
       id: -3,
-      description: 'firstffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff todo',
-      done: true
+      description: 'first todo'
     },
     {
       id: -2,
