@@ -1,6 +1,7 @@
 var todoFunctions = {
   generateId: (function() {
-    var idCounter = 0;
+    var state = JSON.parse(localStorage.getItem('state'));
+    var idCounter = state? state.length : 0;
 
     function incrementCounter() {
       return (idCounter += 1);
