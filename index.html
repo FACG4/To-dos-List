@@ -3,32 +3,50 @@
 
 <head>
   <meta charset="utf-8">
-  <title>tdd todo</title>
-  <link rel="stylesheet" href="./style.css">
+  <title>Todo List</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
   <section class="container">
 
-    <h1>Simple To-To List</h1>
-    <p>You can add your tasks and check it to done</p>
-    <form id="add-todo">
-      <input type="text" name="description" value="">
-      <select>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
-</select>
-      <input type="submit" name="" value="Submit">
+    <h1 class="h1Style">Simple To-Do List</h1>
+    <p class="pStyle">You can add your tasks and check it to done</p>
+    <br>
+    <form id="add-todo" class="formStyle">
+      <div class="inlineDiv">
+
+        <!-- <label for="task_id">Your Task</label> -->
+        <input id="task_id" type="text" placeholder="Your Task ..">
+      </div>
+
+      <div class="inlineDiv">
+
+        <label for="priority_id">Priority</label>
+
+        <select id="priority_id">
+    <option value="nochoice">..</option>
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
+
+  </select>
+      </div>
+
+      <button type="submit" name="add">Add Task</button>
+
     </form>
-    <div id="todo-container">
-      <ul>
-      </ul>
-    </div>
+  </section>
+  <h2>To-Do !</h2>
+  <div id="todo-container">
+    <ul>
+    </ul>
+  </div>
 </body>
-</section>
 <script type="text/javascript" src="./logic.js"></script>
 <script type="text/javascript" src="./dom.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script> -->
+
 
 </html>
