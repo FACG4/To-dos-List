@@ -105,7 +105,13 @@ height: 40px;
   line-height: 40px;
   border-radius: 5px;
 }
+.tododiv button {
 
+  background-color: transparent;
+  border: none;
+  float: right;
+  color: #EDE7F6;
+}
 .iconStyle {
   font-size: 20px;
   color: #EDE7F6;

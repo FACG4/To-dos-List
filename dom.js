@@ -11,7 +11,7 @@
 
   var state = [{
       id: -3,
-      description: 'firstffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff todo'
+      description: 'first todo'
     },
     {
       id: -2,
@@ -50,7 +50,7 @@
 
 
 
-    
+
     todoNode.appendChild(span);
     todoNode.appendChild(icon);
 
@@ -58,16 +58,18 @@
 
     // add classes for css
 
-    // Edit buttoon 
-      
+    // Edit buttoon
+
       const editButton = document.createElement('button');
       const editIcon = document.createElement('i');
       const editInput = document.createElement('input');
       const savedSpan = document.createElement('span');
       editButton.id = 'edit';
+      // editIcon.className="fa fa-pencil iconStyle";
       editButton.appendChild(editIcon);
       todoNode.appendChild(editButton);
-      
+
+
 
       editButton.addEventListener('click', function(e) {
         if (e.target.id === 'edit') {
