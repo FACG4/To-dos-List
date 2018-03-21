@@ -65,7 +65,7 @@
       const editInput = document.createElement('input');
       const savedSpan = document.createElement('span');
       editButton.id = 'edit';
-      // editIcon.className="fa fa-pencil iconStyle";
+      editIcon.className="fa fa-pencil iconStyle";
       editButton.appendChild(editIcon);
       todoNode.appendChild(editButton);
 
