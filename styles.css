@@ -2,12 +2,12 @@
   font-family: sans-serif;
 }
 
-.container{
+.container {
   /* background-size: cover;
   height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(imgs/todoimg3.jpeg); */
-
 }
+
 .h1Style {
   text-align: center;
 }
@@ -33,7 +33,7 @@
   border: none;
   background: #f1f1f1;
   border-radius: 4px;
-  box-shadow: 0px 1px 4px 0px #ffd6b3;
+  box-shadow: 0px 1px 4px 0px #B39DDB;
 }
 
 .formStyle select {
@@ -44,7 +44,7 @@
   border: none;
   background: #f1f1f1;
   border-radius: 4px;
-  box-shadow: 0px 1px 4px 0px #ffd6b3;
+  box-shadow: 0px 1px 4px 0px #B39DDB;
 }
 
 .formStyle label {
@@ -57,9 +57,9 @@
   color: gray;
 }
 
-.formStyle button {
-  background-color: #ffd6b3;
-  color: gray;
+.formStyle input[type=submit] {
+  background-color: #B39DDB;
+  color: #EDE7F6;
   padding: 14px 20px;
   margin: 0 auto;
   border: none;
@@ -71,14 +71,39 @@
   box-shadow: 0px 1px 4px 0px #999999e0;
 }
 
-.inlineDiv{
+.inlineDiv {
   display: inline-block;
   width: 49%;
 }
-.formStyle button:hover {
-  opacity: 1;
+
+.tododiv {
+  width: 630px;
+  margin: 0 auto;
+}
+
+.tododiv h2 {
+  color: gray;
+}
+
+.tododiv ul {
+  list-style-type: none;
+  display: inline;
+}
+
+.tododiv li {
+  height: 40px;
+  background-color: #7E57C2;
+  margin: 5px;
+  color: #EDE7F6;
+  padding-left: 10px;
+  line-height: 40px;
+  border-radius: 5px;
 }
 
 .iconStyle {
-  color: gray;
+  font-size: 20px;
+  color: #EDE7F6;
+  float: right;
+  padding-right: 10px;
+  line-height: 40px;
 }
