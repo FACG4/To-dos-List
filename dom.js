@@ -56,6 +56,35 @@
     todoNode.insertBefore(markButtonNode,todoNode.firstChild);
     todoNode.appendChild(icon);
 
+    // Edit buttoon
+
+      const editButton = document.createElement('button');
+      const editIcon = document.createElement('i');
+      const editInput = document.createElement('input');
+      const savedSpan = document.createElement('span');
+      editButton.id = 'edit';
+      editIcon.className='fa fa-pencil iconStyle';
+      editButton.appendChild(editIcon);
+      editButton.className='edit'
+      todoNode.appendChild(editButton);
+
+
+      editButton.addEventListener('click', function(e) {
+        if (e.target.id === 'edit') {
+          editButton.type = 'text';
+          editInput.value = span.textContent;
+          todoNode.insertBefore(editInput, span);
+          todoNode.removeChild(span);
+          editButton.id = 'save';
+
+        } else if (e.target.id === 'save'){
+          savedSpan.textContent = editInput.value;
+          todoNode.insertBefore(savedSpan, editInput);
+          todoNode.removeChild(editInput);
+          editButton.id = 'edit';
+        }
+      });
+
     return todoNode;
   };
 

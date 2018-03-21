@@ -47,6 +47,10 @@
   box-shadow: 0px 1px 4px 0px #B39DDB;
 }
 
+.formStyle option {
+  height: 40px;
+}
+
 .formStyle label {
   /* width: 40%; */
   margin-bottom: 10px;
@@ -83,6 +87,7 @@
 
 .tododiv h2 {
   color: gray;
+  padding-left: 10px;
 }
 
 .tododiv ul {
@@ -122,13 +127,23 @@
   display: inline;
 }
 
-.donediv li{
+.donediv li {
   height: 40px;
-  background-color: green ;
+  background-color: green;
   margin: 5px;
   color: #EDE7F6;
   padding-left: 10px;
   line-height: 40px;
   border-radius: 5px;
+}
 
+.fa-pencil{
+  pointer-events: none;
+}
+
+.edit {
+  background-color: transparent;
+  border: none;
+  float: right;
+  color: #EDE7F6;
 }

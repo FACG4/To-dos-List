@@ -6,6 +6,7 @@
   <title>Todo List</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./styles.css">
+
 </head>
 
 <body>
@@ -17,18 +18,18 @@
     <form id="add-todo" class="formStyle">
       <div class="inlineDiv">
 
-        <input id="task_id" type="text" name="description" placeholder="Your Task ..">
+        <!-- <label for="task_id">Your Task</label> -->
+        <input id="task_id" type="text" name="description" placeholder="Your Task .." autofocus>
       </div>
 
       <div class="inlineDiv">
 
         <label for="priority_id">Priority</label>
-
         <select id="priority_id">
-    <option value="nochoice">..</option>
-    <option value="low">Low</option>
-    <option value="medium">Medium</option>
-    <option value="high">High</option>
+              <option value="nochoice">..</option>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
 
   </select>
       </div>
