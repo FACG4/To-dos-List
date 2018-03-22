@@ -1,6 +1,6 @@
 # To-dos-List
 ### You can visit our  [site](https://facg4.github.io/To-dos-List/.)
-###### Coding by : Abdelsamad , Balsam , Haneen and Ishak
+###### Coded by : Abdelsamad , Balsam , Haneen and Ishak
 
 ### 1.Why?
 an application that provides simple features to help users to organize their tasks, they can add, Edit, mark and delete it.
@@ -9,7 +9,7 @@ DOM , Testing , HTML, JavaScript , CSS.
 
 
 ### 2.What?
-single web-page that contained rm to inse :r5000 .t the tasks and give them priorities , else the user can edit mark and delete the select his tasks .
+Single web-page that contained the tasks and give them priorities , else the user can edit mark and delete the select his tasks .
 
 
 ### 3.How?
@@ -28,4 +28,4 @@ single web-page that contained rm to inse :r5000 .t the tasks and give them prio
 * Clone the repo ``` $ git clone https://github.com/FACG4/To-dos-List.git ``` .
 * Run ``` $ npm init , $ npm install ``` .
 * ``` $ npm run ``` start .
-* Use your browser and jump into localhost : 5000 . 
+* Use your browser and jump into localhost : 5000 .
