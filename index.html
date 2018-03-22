@@ -6,57 +6,45 @@
   <title>Todo List</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./styles.css">
-
 </head>
-
 <body>
   <section class="container">
-
     <h1 class="h1Style">Simple To-Do List</h1>
     <p class="pStyle">You can add your tasks and check it to done</p>
     <br>
     <form id="add-todo" class="formStyle">
       <div class="inlineDiv">
-
-        <!-- <label for="task_id">Your Task</label> -->
-        <input id="task_id" type="text" name="description" placeholder="Your Task .." autofocus>
+        <input id="task_id" type="text" name="description" maxlength="30" placeholder="Your Task .." autofocus>
       </div>
-
       <div class="inlineDiv">
-
         <label for="priority_id">Priority</label>
         <select id="priority_id">
               <option value="nochoice">..</option>
               <option value="low">Low</option>
               <option value="medium">Medium</option>
               <option value="high">High</option>
-
-  </select>
+        </select>
       </div>
-
       <input type="submit" name="" value="Add Task">
-
     </form>
   </section>
   <section class="tododiv">
-
-    <h2>To-Do !</h2>
+    <h2>To Do !</h2>
     <div id="todo-container" class="tododiv">
       <ul id="todo">
       </ul>
     </div>
   </section>
   <section class="donediv">
-
-    <h2>Done</h2>
+    <h2 class="h2done">Done !</h2>
     <div id="done-container" class="tododiv">
       <ul>
       </ul>
     </div>
   </section>
 </body>
+
 <script type="text/javascript" src="./logic.js"></script>
 <script type="text/javascript" src="./dom.js"></script>
-
 
 </html>
