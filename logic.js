@@ -58,7 +58,7 @@ var todoFunctions = {
   editTodo: function(todos, idToEdit, newDescription) {
     var copy_arr = this.cloneArrayOfObjects(todos);
     for (let item of copy_arr) {
-      if (item.id === idToEdit) {
+      if (item.id == idToEdit) {
         item.description = newDescription;
       }
     }

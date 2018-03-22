@@ -8,14 +8,15 @@
 
   var createTodoNode = function(todo, checked) {
     var todoNode = document.createElement('li');
+    todoNode.id = todo.id;
+    
+    // you will need to use addEventListener
 
 
     var span = document.createElement('span');
     span.textContent = todo.description;
 
     var deleteButtonNode = document.createElement('button');
-
-
     var icon = document.createElement('i');
     icon.addEventListener('click', function(event) {
       var newState = todoFunctions.deleteTodo(state, todo.id);
@@ -43,31 +44,34 @@
 
     const editButton = document.createElement('button');
     const editIcon = document.createElement('i');
+    const editInput = document.createElement('input');
+    
     editButton.id = 'edit';
     editIcon.className = 'fa fa-pencil iconStyle';
     editButton.appendChild(editIcon);
     editButton.className = 'edit'
     todoNode.appendChild(editButton);
-    
+    editInput.autofocus = true;
+
+
     
     editButton.addEventListener('click', function(e) {
-      const editInput = document.createElement('input');
-      if (e.target.id === 'edit') {
-        // editButton.type = 'text';
-        editInput.value = span.textContent;
-        todoNode.insertBefore(editInput, span);
-        todoNode.removeChild(span);
-        editButton.id = 'save';
-
-      } else if (e.target.id === 'save') {
-        const savedSpan = document.createElement('span');
-        savedSpan.textContent = editInput.value;
-        todoNode.insertBefore(savedSpan, editInput);
-        todoNode.removeChild(editInput);
-        editButton.id = 'edit';
-      }
-    });
-
+      // update(state);          
+        if (e.target.id === 'edit') {
+          editInput.value = span.textContent;
+          todoNode.insertBefore(editInput, span);
+          span.classList.add('hidden');
+          editButton.id = 'save';
+          editIcon.className = 'fa fa-check iconStyle';
+          
+        } else if (e.target.id === 'save'){
+          editInput.autofocus = true;
+          const newState =  todoFunctions.editTodo(state, e.target.parentNode.getAttribute('id'), editInput.value);
+          todoNode.removeChild(editInput);
+          update(newState);
+          // editButton.id = 'edit';
+        }
+      })
     return todoNode;
   };
 
@@ -100,9 +104,7 @@
     var todoListNode2 = document.createElement('ul');
     todoListNode2.className = 'done_i';
 
-    localStorage.setItem('state', JSON.stringify(state));
-    console.log(state);
-    
+    localStorage.setItem('state', JSON.stringify(state));    
 
     state.forEach(function(todo) {
       if (!todo.done) {
@@ -113,8 +115,8 @@
       }
     });
     
-    container.replaceChild(todoListNode, container.firstChild);
-    containerDone.replaceChild(todoListNode2, containerDone.firstChild);
+    container.replaceChild(todoListNode, container.firstElementChild);
+    containerDone.replaceChild(todoListNode2, containerDone.firstElementChild);
   };
 
   if (container) renderState(state);

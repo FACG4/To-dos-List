@@ -1,47 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Todo List</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
 </head>
-<body>
-  <section class="container">
-    <h1 class="h1Style">Simple To-Do List</h1>
-    <p class="pStyle">You can add your tasks and check it to done</p>
-    <br>
-    <form id="add-todo" class="formStyle">
-      <div class="inlineDiv">
-        <input id="task_id" type="text" name="description" maxlength="30" placeholder="Your Task .." autofocus>
-      </div>
-      <div class="inlineDiv">
-        <label for="priority_id">Priority</label>
-        <select id="priority_id">
-              <option value="nochoice">..</option>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
+
+<body class="background">
+  <h1>Simple To-Do List</h1>
+  <p>You can add your tasks and check it to done</p>
+  <div class="background__color__div">
+
+    <section class="container">
+      <form id="add-todo" class="formStyle">
+        <div class="inlineDiv">
+          <input id="task_id" type="text" name="description" maxlength="30" placeholder="Your Task .." autofocus>
+        </div>
+        <div class="inlineDiv">
+          <label for="priority_id">Priority</label>
+          <select id="priority_id">
+          <option value="nochoice">..</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
         </select>
+        </div>
+        <input type="submit" name="" value="Add Task">
+      </form>
+    </section>
+    <section class="tododiv">
+      <h2>To Do !</h2>
+      <div id="todo-container" class="tododiv">
+        <ul id="todo">
+        </ul>
       </div>
-      <input type="submit" name="" value="Add Task">
-    </form>
-  </section>
-  <section class="tododiv">
-    <h2>To Do !</h2>
-    <div id="todo-container" class="tododiv">
-      <ul id="todo">
-      </ul>
-    </div>
-  </section>
-  <section class="donediv">
-    <h2 class="h2done">Done !</h2>
-    <div id="done-container" class="tododiv">
-      <ul>
-      </ul>
-    </div>
-  </section>
+    </section>
+    <section class="donediv">
+      <h2 class="h2done">Done !</h2>
+      <div id="done-container" class="tododiv">
+        <ul></ul>
+      </div>
+    </section>
+  </div>
 </body>
 
 <script type="text/javascript" src="./logic.js"></script>
