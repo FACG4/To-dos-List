@@ -2,12 +2,6 @@
   font-family: sans-serif;
 }
 
-.container {
-  /* background-size: cover;
-  height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(imgs/todoimg3.jpeg); */
-}
-
 .h1Style {
   text-align: center;
 }
@@ -48,12 +42,10 @@
 }
 
 .formStyle option {
-
-height: 40px;
+  height: 40px;
 }
 
 .formStyle label {
-  /* width: 40%; */
   margin-bottom: 10px;
   display: inline-block;
   font-weight: bold;
@@ -120,10 +112,45 @@ height: 40px;
   line-height: 40px;
 }
 
-.fa {
+.donediv {
+  width: 630px;
+  margin: 0 auto;
+}
+
+.donediv h2 {
+  color: gray;
+}
+
+.donediv ul {
+  list-style-type: none;
+  display: inline;
+}
+
+.donediv li {
+  height: 40px;
+  background-color: green;
+  margin: 5px;
+  color: #EDE7F6;
+  padding-left: 10px;
+  line-height: 40px;
+  border-radius: 5px;
+}
+
+.fa-pencil, .fa-check {
   pointer-events: none;
+}
+
+.edit {
+  background-color: transparent;
+  border: none;
+  float: right;
+  color: #EDE7F6;
 }
 
 .hidden {
   display: none;
+}
+
+.formStyle .hidden {
+  display: none
 }

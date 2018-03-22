@@ -1,41 +1,21 @@
-// part 2 linking it all together
-// The function here is called an iife,
-// it keeps everything inside hidden from the rest of our application
 (function() {
-  // This is the dom node where we will keep our todo
   var container = document.getElementById('todo-container');
+  var containerDone = document.getElementById('done-container');
   var addTodoForm = document.getElementById('add-todo');
   var addTodoInput = document.getElementsByName('description')[0];
 
+  var state = JSON.parse(localStorage.getItem('state')) || [];
 
-
-  var state = [{
-      id: -3,
-      description: 'first todo'
-    },
-    {
-      id: -2,
-      description: 'second todo'
-    },
-    {
-      id: -1,
-      description: 'third todo'
-    },
-  ]; // this is our initial todoList
-
-  // This function takes a todo, it returns the DOM node representing that todo
-  var createTodoNode = function(todo) {
+  var createTodoNode = function(todo, checked) {
     var todoNode = document.createElement('li');
     todoNode.id = todo.id;
     
     // you will need to use addEventListener
 
 
-    // add span holding description
     var span = document.createElement('span');
     span.textContent = todo.description;
 
-    // this adds the delete button
     var deleteButtonNode = document.createElement('button');
     var icon = document.createElement('i');
     icon.addEventListener('click', function(event) {
@@ -43,79 +23,100 @@
       update(newState);
     });
     icon.className = "fa fa-trash iconStyle";
-    
+
+    var markButtonNode = document.createElement('input');
+    markButtonNode.setAttribute("type", "checkbox");
+    if (checked) {
+      markButtonNode.setAttribute("checked", "true");
+
+    }
+    markButtonNode.addEventListener('click', function(event) {
+      var newState3 = todoFunctions.markTodo(state, todo.id);
+      update(newState3);
+    });
+
+
     todoNode.appendChild(span);
+    todoNode.insertBefore(markButtonNode, todoNode.firstChild);
     todoNode.appendChild(icon);
-
-    // add markTodo button
-
-    // add classes for css
 
     // Edit buttoon
 
-      const editButton = document.createElement('button');
-      const editIcon = document.createElement('i');
-      const editInput = document.createElement('input');
-      editIcon.className="fa fa-pencil iconStyle";
-      editButton.id = 'edit';
-      editButton.appendChild(editIcon);
-      todoNode.appendChild(editButton);
+    const editButton = document.createElement('button');
+    const editIcon = document.createElement('i');
+    const editInput = document.createElement('input');
+    
+    editButton.id = 'edit';
+    editIcon.className = 'fa fa-pencil iconStyle';
+    editButton.appendChild(editIcon);
+    editButton.className = 'edit'
+    todoNode.appendChild(editButton);
+    editInput.autofocus = true;
 
 
-
-      editButton.addEventListener('click', function(e) {
+    
+    editButton.addEventListener('click', function(e) {
+      // update(state);          
         if (e.target.id === 'edit') {
           editInput.value = span.textContent;
           todoNode.insertBefore(editInput, span);
           span.classList.add('hidden');
           editButton.id = 'save';
-          editIcon.className= 'fa fa-check iconStyle';
-
+          editIcon.className = 'fa fa-check iconStyle';
+          
         } else if (e.target.id === 'save'){
-         const newState =  todoFunctions.editTodo(state, e.target.parentNode.getAttribute('id'), editInput.value);
-         todoNode.removeChild(editInput);
-         update(newState);
+          editInput.autofocus = true;
+          const newState =  todoFunctions.editTodo(state, e.target.parentNode.getAttribute('id'), editInput.value);
+          todoNode.removeChild(editInput);
+          update(newState);
           // editButton.id = 'edit';
         }
-      });
-
+      })
     return todoNode;
   };
 
-  // bind create todo form
   if (addTodoForm) {
     addTodoForm.addEventListener('submit', function(event) {
 
-      // https://developer.mozilla.org/en-US/docs/Web/Events/submit
-      // what does event.preventDefault do?
-      // what is inside event.target?
       event.preventDefault();
+
       var description = event.target.description.value;
-      event.target.description.value="";
-
-      // hint: todoFunctions.addTodo
-
-      var newState = todoFunctions.addTodo(state, description); // ?? change this!
+      if(description.trim().length>0){
+      var newState = todoFunctions.addTodo(state, description);
       update(newState);
+      event.target.description.value = "";
+        
+      }
+      else{
+        alert('Enter todo');
+      }
     });
   }
 
-  // you should not need to change this function
   var update = function(newState) {
     state = newState;
     renderState(state);
   };
 
-  // you do not need to change this function
-  var renderState = function(state) {
+
+    var renderState = function(state) {
     var todoListNode = document.createElement('ul');
+    var todoListNode2 = document.createElement('ul');
+    todoListNode2.className = 'done_i';
+
+    localStorage.setItem('state', JSON.stringify(state));    
 
     state.forEach(function(todo) {
-      todoListNode.appendChild(createTodoNode(todo));
-    });
+      if (!todo.done) {
+        todoListNode.appendChild(createTodoNode(todo, false));
+      } else {
+        todoListNode2.appendChild(createTodoNode(todo, true));
 
-    // you may want to add a class for css
-    container.replaceChild(todoListNode, container.firstChild);
+      }
+    });
+    
+    container.replaceChild(todoListNode, container.firstElementChild);
+    containerDone.replaceChild(todoListNode2, containerDone.firstElementChild);
   };
 
   if (container) renderState(state);
