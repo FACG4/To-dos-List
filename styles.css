@@ -112,7 +112,7 @@
   height: 40px;
   background-color: #776377;
   margin: 5px;
-  color: #212121;
+  color: #EDE7F6;
   padding-left: 10px;
   line-height: 40px;
   border-radius: 5px;
@@ -122,6 +122,10 @@
   background-color: transparent;
   border: none;
   float: right;
+  color: #EDE7F6;
+}
+
+.white .fa {
   color: #EDE7F6;
 }
 
