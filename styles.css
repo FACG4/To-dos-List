@@ -142,7 +142,7 @@
   border-radius: 5px;
 }
 
-.fa-pencil {
+.fa-pencil, .fa-check {
   pointer-events: none;
 }
 
@@ -151,4 +151,12 @@
   border: none;
   float: right;
   color: #EDE7F6;
+}
+
+.hidden {
+  display: none;
+}
+
+.formStyle .hidden {
+  display: none
 }
