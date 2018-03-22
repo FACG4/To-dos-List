@@ -1,20 +1,40 @@
 * {
-  font-family: sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 
-.container h1 {
-  text-align: center;
+.background__color__div {
+  background-color: #ccccc190;
+  width: 660px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.container p {
+.background {
+  /* background: grey; */
+  background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7)), url(imgs/background.jpeg);
+  background-size: cover;
+  min-height: 100vh;
+  background-position: center center;
+}
+
+.container {
+  width: 630px;
+  margin: 0 auto;
+}
+
+.background h1 {
   text-align: center;
-  color: gray;
+  color: #212121;
+}
+
+.background p {
+  text-align: center;
+  color: #212121;
 }
 
 .container form {
   padding: 16px;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 630px;
   background-color: #EEEEEE;
   border-radius: 4px;
 }
@@ -27,7 +47,7 @@
   border: none;
   background: #f1f1f1;
   border-radius: 4px;
-  box-shadow: 0px 1px 4px 0px #B39DDB;
+  box-shadow: 0px 1px 4px 0px #695769;
 }
 
 .container form select {
@@ -38,7 +58,7 @@
   border: none;
   background: #f1f1f1;
   border-radius: 4px;
-  box-shadow: 0px 1px 4px 0px #B39DDB;
+  box-shadow: 0px 1px 4px 0px #695769;
 }
 
 .container form select option {
@@ -55,7 +75,7 @@
 }
 
 .container form input[type=submit] {
-  background-color: #B39DDB;
+  background-color: #695769;
   color: #EDE7F6;
   padding: 14px 20px;
   margin: 0 auto;
@@ -65,7 +85,7 @@
   font-size: 16px;
   font-weight: bold;
   border-radius: 4px;
-  box-shadow: 0px 1px 4px 0px #999999e0;
+  box-shadow: 0px 1px 4px 0px #ccc1cc;
 }
 
 .inlineDiv {
@@ -79,12 +99,7 @@
 }
 
 .tododiv h2 {
-  color: gray;
-  padding-left: 10px;
-}
-
-.h2done {
-  color: gray;
+  color: #212121;
   padding-left: 10px;
 }
 
@@ -95,9 +110,9 @@
 
 .tododiv li {
   height: 40px;
-  background-color: #7E57C2;
+  background-color: #776377;
   margin: 5px;
-  color: #EDE7F6;
+  color: #212121;
   padding-left: 10px;
   line-height: 40px;
   border-radius: 5px;
@@ -112,7 +127,7 @@
 
 .iconStyle {
   font-size: 20px;
-  color: #EDE7F6;
+  color: #212121;
   float: right;
   padding-right: 10px;
   line-height: 40px;
@@ -124,7 +139,8 @@
 }
 
 .donediv h2 {
-  color: gray;
+  color: #212121;
+  padding-left: 10px;
 }
 
 .donediv ul {
@@ -134,9 +150,9 @@
 
 .donediv li {
   height: 40px;
-  background-color: green;
+  background-color: #ccc1cc;
   margin: 5px;
-  color: #EDE7F6;
+  color: #212121;
   padding-left: 10px;
   line-height: 40px;
   border-radius: 5px;
